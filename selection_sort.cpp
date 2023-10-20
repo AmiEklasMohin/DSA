@@ -1,16 +1,15 @@
 #include <iostream>
-#include <algorithm>
 #include <ctime>
 using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-    int arr[n];
+void printArray (int arr[], int n) {
     for (int i = 0; i < n; ++i) {
-        arr[i] = n - i;
+        cout << arr[i] << " ";
     }
-    // selection_sort
+    cout << endl;
+}
+
+void selectionSort(int arr[], int n) {
     auto start_time = clock();
     for (int i = 0; i < n; ++i) {
         int index = i;
@@ -25,9 +24,16 @@ int main() {
     }
     auto finish_time = clock();
     cout << "Runtime = "<< finish_time - start_time << "ms" << endl;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int arr[n];
     for (int i = 0; i < n; ++i) {
-        cout << arr[i] << " ";
+        arr[i] = n - i;
     }
-    cout << endl;
+    selectionSort(arr, n);
+    printArray(arr, n);
     return 0;
 }

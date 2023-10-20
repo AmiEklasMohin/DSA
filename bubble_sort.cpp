@@ -22,7 +22,7 @@ int main() {
     auto finish_time = clock();
     cout <<"Runtime = "<< finish_time - start_time << "ms" << endl;
     for (int i = 0; i < n; ++i) {
-        cout << arr[i] << ' ';
+        cout << arr[i] << " ";
     }
     cout << endl;
     return 0;

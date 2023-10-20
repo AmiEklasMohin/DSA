@@ -3,8 +3,9 @@
 #include <vector>
 using namespace std;
 
-int maximumMountainWidth(vector<int> vectr, int n) {
+int maximumMountainWidth(vector<int> vectr) {
     int maximum_width = 0;
+    int n = vectr.size();
     for (int i = 1; i < (n - 1); ++i) {
         if (vectr[i] > vectr[i + 1] and vectr[i] > vectr[i - 1]) {
             int counter = 3, left = i - 1, right = i + 1;
@@ -31,7 +32,7 @@ int main() {
         cin >> in;
         vectr.push_back(in);
     }
-    int maximum_width = maximumMountainWidth(vectr, n);
+    int maximum_width = maximumMountainWidth(vectr);
     cout<< maximum_width << endl;
     return 0;
 }

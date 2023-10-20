@@ -38,11 +38,16 @@ int main() {
     }
     cin >> target;
     vector<vector<int>> result = triplets(vectr, target);
-    for (int i = 0; i < result.size(); ++i) {
-        for (int x: result[i]) {
-            cout << x << " ";
+    if (result.size() == 0) {
+        cout << "No such triplets" << endl;
+    } else {
+        for (int i = 0; i < result.size(); ++i) {
+            for (int x : result[i]) {
+                cout << x << " ";
+            }
+            cout << endl;
         }
-        cout << endl;
     }
     return 0;
 }
+

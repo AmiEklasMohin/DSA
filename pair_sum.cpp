@@ -1,21 +1,20 @@
 #include <iostream>
-#include <vector>
+#include <algorithm>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
-vector<int> pairSum(vector<int> vectr, int target) {
-    unordered_set<int> st;
-    vector<int> res;
+vector<vector<int>> pairs(vector<int> vectr, int target) {
+    unordered_set<int> ust;
+    vector<vector<int>> result;
     for (int i = 0; i < vectr.size(); ++i) {
         int required = target - vectr[i];
-        if (st.find(required) != st.end()) {
-            res.push_back(required);
-            res.push_back(vectr[i]);
-            break;
+        if (ust.find(required) != ust.end()) {
+            result.push_back({required, vectr[i]});
         }
-        st.insert(vectr[i]);
+        ust.insert(vectr[i]);
     }
-    return res;
+    return result;
 }
 
 int main() {
@@ -27,11 +26,17 @@ int main() {
         vectr.push_back(in);
     }
     cin >> target;
-    vector<int> result = pairSum(vectr, target);
+    vector<vector<int>> result = pairs(vectr, target);
     if (result.size() == 0) {
         cout << "No such pairs" << endl;
     } else {
-        cout << result[0] << ' ' << result[1] << endl;
+        for (int i = 0; i < result.size(); ++i) {
+            for (int x : result[i]) {
+                cout << x << " ";
+            }
+            cout << endl;
+        }
     }
     return 0;
 }
+

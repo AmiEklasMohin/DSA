@@ -5,14 +5,14 @@
 using namespace std;
 
 vector<vector<int>> pairs(vector<int> vectr, int target) {
-    unordered_set<int> ust;
+    unordered_set<int> uset;
     vector<vector<int>> result;
     for (int i = 0; i < vectr.size(); ++i) {
         int required = target - vectr[i];
-        if (ust.find(required) != ust.end()) {
+        if (uset.find(required) != uset.end()) {
             result.push_back({required, vectr[i]});
         }
-        ust.insert(vectr[i]);
+        uset.insert(vectr[i]);
     }
     return result;
 }
